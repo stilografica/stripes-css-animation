@@ -1,6 +1,8 @@
 # Animación CSS
 
-_Ejercicio de animación css partiendo de un ejemplo dado - IT Academy itinerario Frontend_
+_Ejercicio de IT Academy itinerario Frontend sobre animación css partiendo del siguiente ejemplo dado_
+
+https://itacademyprojects.github.io/ITAcademyStripes/
 
 ### Instalación 🔧
 
