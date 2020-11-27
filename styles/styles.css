@@ -47,14 +47,19 @@ table {
 	border-spacing: 0;
 }
 /*CUSTOM CSS STYLE*/
+
 h1{
     font-family: 'Lato', sans-serif;
-    font-size: 3.4vw;
+    font-size: 3.5vw;
+    line-height: 1.5;
+    text-rendering: geometricPrecision;
     color: #fff;
     text-transform: uppercase;
-    /*Font weight between light and regular*/
-    -webkit-font-smoothing: antialiased;
-    -moz-font-smoothing: grayscale;
+    position: absolute;
+    /*Font smoth*/
+    -webkit-font-smoothing: antialiased; /* Safari & Chrome*/
+    -moz-font-smoothing: grayscale; /* Firefox */
+    transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
 /*Big container, father element*/
@@ -66,16 +71,24 @@ h1{
 /*Container num1*/
 #strip1  {
     background-color: #244F75;
-    /*Animation*/
+    /* Safari & Chrome*/
     -webkit-animation: container1 1s cubic-bezier(0.23, 1, 0.32, 1) 0.1s both;
+    /* Firefox */
+    -moz-animation: container1 1s cubic-bezier(0.23, 1, 0.32, 1) 0.1s both;
+    /* Opera */
+    -o-animation: container1 1s cubic-bezier(0.23, 1, 0.32, 1) 0.1s both;
             animation: container1 1s cubic-bezier(0.23, 1, 0.32, 1) 0.1s both;
 }
 
 /*Container num2*/
 #strip2  {
     background-color: #60BFBF;
-    /*Animation*/
+    /* Safari & Chrome*/
     -webkit-animation: container2 1s cubic-bezier(0.23, 1, 0.32, 1) 0.2s both;
+    /* Firefox */
+    -moz-animation: container2 1s cubic-bezier(0.23, 1, 0.32, 1) 0.2s both;
+    /* Opera */
+    -o-animation: container2 1s cubic-bezier(0.23, 1, 0.32, 1) 0.2s both;
             animation: container2 1s cubic-bezier(0.23, 1, 0.32, 1) 0.2s both;
     /*White line between containers*/
     margin-left: 0.188rem;
@@ -84,8 +97,12 @@ h1{
 /*Container num3*/
 #strip3  {
     background-color: #8C4B7E;
-    /*Animation*/
+    /* Safari & Chrome*/
     -webkit-animation: container3 1s cubic-bezier(0.23, 1, 0.32, 1) 0.3s both;
+    /* Firefox */
+    -moz-animation: container3 1s cubic-bezier(0.23, 1, 0.32, 1) 0.3s both;
+    /* Opera */
+    -o-animation: container3 1s cubic-bezier(0.23, 1, 0.32, 1) 0.3s both;
             animation: container3 1s cubic-bezier(0.23, 1, 0.32, 1) 0.3s both;
     /*White line between containers*/
     margin-left: 0.188rem;
@@ -94,8 +111,12 @@ h1{
 /*Container num4*/
 #strip4  {
     background-color: #F8BB44;
-    /*Animation*/
+    /* Safari & Chrome*/
     -webkit-animation: container4 1s cubic-bezier(0.23, 1, 0.32, 1) 0.4s both;
+    /* Firefox */
+    -moz-animation: container4 1s cubic-bezier(0.23, 1, 0.32, 1) 0.4s both;
+    /* Opera */
+    -o-animation: container4 1s cubic-bezier(0.23, 1, 0.32, 1) 0.4s both;
             animation: container4 1s cubic-bezier(0.23, 1, 0.32, 1) 0.4s both;
     /*White line between containers*/
     margin-left: 0.188rem;
@@ -104,8 +125,12 @@ h1{
 /*Container num5*/
 #strip5  {
     background-color: #F24B4B;
-    /*Animation*/
+    /* Safari & Chrome*/
     -webkit-animation: container5 1s cubic-bezier(0.23, 1, 0.32, 1) 0.5s both;
+    /* Firefox */
+    -moz-animation: container5 1s cubic-bezier(0.23, 1, 0.32, 1) 0.5s both;
+    /* Opera */
+    -o-animation: container5 1s cubic-bezier(0.23, 1, 0.32, 1) 0.5s both;
             animation: container5 1s cubic-bezier(0.23, 1, 0.32, 1) 0.5s both;
     /*White line between containers*/
     margin-left: 0.188rem;
@@ -128,8 +153,7 @@ h1{
 /*white layer*/
 .strip:before {
     content: "";
-    position: absolute;
-    z-index: 1;
+    position: relative;
     top: 0;
     left: 0;
     /*white layer size*/
@@ -138,9 +162,9 @@ h1{
     background: white;
     opacity: 0.05;
     /*transformation of the white layer in resting position*/
-    -webkit-transform-origin: center center;
+    -webkit-transform-origin: center center;/* Safari & Chrome*/
             transform-origin: center center;
-    -webkit-transform: skew(30deg) scaleY(1) translate(0, 0);
+    -webkit-transform: skew(30deg) scaleY(1) translate(0, 0);/* Safari & Chrome*/
             transform: skew(30deg) scaleY(1) translate(0, 0);
     /*white layer movement*/
     transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
@@ -149,46 +173,96 @@ h1{
 /*white layer hover effect */
 .strip:hover:before {
     /*white layer grows*/
-    -webkit-transform: scale(2);
-            transform: scale(2);
+    -webkit-transform: skew(0deg) scale(3) ;/* Safari & Chrome*/
+        transform: skew(0deg) scale(3) translate(0, 0);
     opacity: .1;
 }
   
-/*Start animations*/
+/*Entrance animations*/
+
+/*CONTAINER 1*/
+/*Animation for Chrome and Safari*/
+@-webkit-keyframes container1 {
+    /*container 1 leave from left*/
+    0% {-webkit-transform: translate(-100%, 0);/* Safari & Chrome*/
+                transform: translate(-100%, 0);}
+    100% {-webkit-transform: translate(0, 0);/* Safari & Chrome*/
+                  transform: translate(0, 0);}
+}
+
 @keyframes container1 {
     /*container 1 leave from left*/
-    0% {-webkit-transform: translate(-100%, 0);
+    0% {-webkit-transform: translate(-100%, 0);/* Safari & Chrome*/
                 transform: translate(-100%, 0);}
-    100% {-webkit-transform: translate(0, 0);
+    100% {-webkit-transform: translate(0, 0);/* Safari & Chrome*/
+                  transform: translate(0, 0);}
+}
+
+/*CONTAINER 2*/
+/*Animation for Chrome and Safari*/
+@-webkit-keyframes container2 {
+    /*container 2 leaves from bottom*/
+    0% {-webkit-transform: translate(0, 100%);/* Safari & Chrome*/
+                transform: translate(0, 100%);}
+    100% {-webkit-transform: translate(0, 0);/* Safari & Chrome*/
                   transform: translate(0, 0);}
 }
 @keyframes container2 {
     /*container 2 leaves from bottom*/
-    0% {-webkit-transform: translate(0, 100%);
+    0% {-webkit-transform: translate(0, 100%);/* Safari & Chrome*/
                 transform: translate(0, 100%);}
-    100% {-webkit-transform: translate(0, 0);
+    100% {-webkit-transform: translate(0, 0);/* Safari & Chrome*/
+                  transform: translate(0, 0);}
+}
+
+/*CONTAINER 3*/
+/*Animation for Chrome and Safari*/
+@-webkit-keyframes container3 {
+    /*container 3 leaves from top*/
+    0% {-webkit-transform: translate(0, -100%);/* Safari & Chrome*/
+                transform: translate(0, -100%);}
+    100% {-webkit-transform: translate(0, 0);/* Safari & Chrome*/
                   transform: translate(0, 0);}
 }
 @keyframes container3 {
     /*container 3 leaves from top*/
-    0% {-webkit-transform: translate(0, -100%);
+    0% {-webkit-transform: translate(0, -100%);/* Safari & Chrome*/
                 transform: translate(0, -100%);}
-    100% {-webkit-transform: translate(0, 0);
+    100% {-webkit-transform: translate(0, 0);/* Safari & Chrome*/
                   transform: translate(0, 0);}
 }
+
+/*CONTAINER 4*/
+/*Animation for Chrome and Safari*/
+@-webkit-keyframes container4 {
+    /*container 4 leaves from bottom*/
+    0% {-webkit-transform: translate(0, 100%);/* Safari & Chrome*/
+                transform: translate(0, 100%);}
+    100% { -webkit-transform: translate(0, 0);/* Safari & Chrome*/
+                   transform: translate(0, 0);}
+}
+
 @keyframes container4 {
     /*container 4 leaves from bottom*/
-    0% {-webkit-transform: translate(0, 100%);
+    0% {-webkit-transform: translate(0, 100%);/* Safari & Chrome*/
                 transform: translate(0, 100%);}
-    100% { -webkit-transform: translate(0, 0);
+    100% { -webkit-transform: translate(0, 0);/* Safari & Chrome*/
                    transform: translate(0, 0);}
+}
+
+/*CONTAINER 5*/
+/*Animation for Chrome and Safari*/
+@-webkit-keyframes container5 {
+    /*container 5 leaves from right*/
+    0% {-webkit-transform: translate(100%, 0);/* Safari & Chrome*/
+                transform: translate(100%, 0);}
+    100% {-webkit-transform: translate(0, 0);/* Safari & Chrome*/
+                  transform: translate(0, 0);}
 }
 @keyframes container5 {
     /*container 5 leaves from right*/
-    0% {-webkit-transform: translate(100%, 0);
+    0% {-webkit-transform: translate(100%, 0);/* Safari & Chrome*/
                 transform: translate(100%, 0);}
-    100% {-webkit-transform: translate(0, 0);
+    100% {-webkit-transform: translate(0, 0);/* Safari & Chrome*/
                   transform: translate(0, 0);}
 }
-
-
